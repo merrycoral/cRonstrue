@@ -659,6 +659,9 @@ var ExpressionDescriptor = (function () {
             else if (segments[0].indexOf("*") == -1) {
                 var rangeItemDescription = stringUtilities_1.StringUtilities.format(getDescriptionFormat(segments[0]), getSingleItemDescription(segments[0]));
                 rangeItemDescription = rangeItemDescription.replace(", ", "");
+                if (this.options.locale == 'ko') {
+                    rangeItemDescription = rangeItemDescription.slice(0, -1);
+                }
                 description += stringUtilities_1.StringUtilities.format(this.i18n.commaStartingX0(), rangeItemDescription);
             }
         }

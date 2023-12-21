@@ -626,7 +626,9 @@ export class ExpressionDescriptor {
 
         // remove any leading comma
         rangeItemDescription = rangeItemDescription.replace(", ", "");
-
+        if (this.options.locale == 'ko') {
+          rangeItemDescription = rangeItemDescription.slice(0, -1)
+        }
         description += StringUtilities.format(this.i18n.commaStartingX0(), rangeItemDescription);
       }
     } else if (doesExpressionContainRange) {

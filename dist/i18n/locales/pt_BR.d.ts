@@ -18,8 +18,8 @@ export declare class pt_BR implements Locale {
     commaEveryX0DaysOfTheWeek(): string;
     commaEveryX0Months(): string;
     commaOnDayX0OfTheMonth(): string;
-    commaOnlyInX0(s?: string): "somente %s" | ", somente em %s";
-    commaOnlyOnX0(s?: string): ", somente %s" | ", somente de %s";
+    commaOnlyInX0(s?: string): ", somente em %s" | "somente %s";
+    commaOnlyOnX0(s?: string): ", somente de %s" | ", somente %s";
     commaAndOnX0(): string;
     commaOnThe(): string;
     commaOnTheLastDayOfTheMonth(): string;
