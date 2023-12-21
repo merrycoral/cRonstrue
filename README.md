@@ -12,6 +12,18 @@ cRonstrue is a JavaScript library that parses a cron expression and outputs a hu
 
 This library was ported from the original C# implementation called [cron-expression-descriptor](https://github.com/bradymholt/cron-expression-descriptor) and is also available in a [few other languages](https://github.com/bradymholt/cron-expression-descriptor#ports).
 
+## What is edited
+
+한국어 표현이 어색한 부분을 수정하였습니다.
+
+|기존|변경|
+|:--|:--|
+| 12 3 * * * <br> *시간* 오전 03:12 | 12 3 * * * <br> 오전 03:12**에** |
+| 12 3 4/6 10 * <br> 시간 오전 03:12, 6일마다, 해당 월의 4일*에*부터, 10월만 | 12 3 4/6 10 * <br> 오전 03:12에, 6일마다, 해당 월의 **4일부터**, 10월만 |
+| * * * 1,5 * <br> 1분마다, 1월 및 5월*에서*만 | * * * 1,5 * <br> 1분마다, 1월 및 5월만 |
+|* * 7 * 1-5 <br> 1분마다, 해당 월의 7일에, *및* 월요일에서 토요일까지| * * 7 * 1-5 <br> 1분마다, 해당 월의 7일에, 월요일에서 토요일까지 |
+| * 17,19 * * * <br> 1분마다, 오후 05:00 및 오후 07:00에*서* | * 17,19 * * * <br> 1분마다, 오후 05:00 및 오후 07:00에 |
+
 ## Features
 - Zero dependencies
 - Supports all cron expression special characters including * / , - ? L W, #

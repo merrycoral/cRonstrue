@@ -134,7 +134,7 @@ var ko = (function () {
         return "1시간마다";
     };
     ko.prototype.atSpace = function () {
-        return "에 ";
+        return "에";
     };
     ko.prototype.everyMinuteBetweenX0AndX1 = function () {
         return "%s 및 %s 사이에 매 분";

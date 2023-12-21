@@ -48,7 +48,7 @@ export class ko implements Locale {
   }
 
   public atSpace() {
-    return "에 ";
+    return "에";
   }
 
   public everyMinuteBetweenX0AndX1() {
