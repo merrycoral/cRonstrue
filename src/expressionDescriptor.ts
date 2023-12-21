@@ -138,7 +138,12 @@ export class ExpressionDescriptor {
       !StringUtilities.containsAny(secondsExpression, ExpressionDescriptor.specialCharacters)
     ) {
       // specific time of day (i.e. 10 14)
-      description += this.i18n.atSpace() + this.formatTime(hourExpression, minuteExpression, secondsExpression);
+      if (this.options.locale == 'ko') {
+        // 한국어일때 at 수정
+        description += this.formatTime(hourExpression, minuteExpression, secondsExpression) + this.i18n.atSpace();
+      } else {
+          description += this.i18n.atSpace() + this.formatTime(hourExpression, minuteExpression, secondsExpression);
+      }
     } else if (
       !secondsExpression &&
       minuteExpression.indexOf("-") > -1 &&
@@ -549,6 +554,9 @@ export class ExpressionDescriptor {
         }
 
         if (i > 0 && segments.length > 1 && (i == segments.length - 1 || segments.length == 2)) {
+          if (this.options.locale == 'ko' && descriptionContent.slice(-1) == ',') {
+            descriptionContent = descriptionContent.slice(0, -1)
+          }
           descriptionContent += `${this.i18n.spaceAnd()} `;
         }
 

@@ -302,7 +302,12 @@ var ExpressionDescriptor = (function () {
         if (!stringUtilities_1.StringUtilities.containsAny(minuteExpression, ExpressionDescriptor.specialCharacters) &&
             !stringUtilities_1.StringUtilities.containsAny(hourExpression, ExpressionDescriptor.specialCharacters) &&
             !stringUtilities_1.StringUtilities.containsAny(secondsExpression, ExpressionDescriptor.specialCharacters)) {
-            description += this.i18n.atSpace() + this.formatTime(hourExpression, minuteExpression, secondsExpression);
+            if (this.options.locale == 'ko') {
+                description += this.formatTime(hourExpression, minuteExpression, secondsExpression) + this.i18n.atSpace();
+            }
+            else {
+                description += this.i18n.atSpace() + this.formatTime(hourExpression, minuteExpression, secondsExpression);
+            }
         }
         else if (!secondsExpression &&
             minuteExpression.indexOf("-") > -1 &&
@@ -614,6 +619,9 @@ var ExpressionDescriptor = (function () {
                     }
                 }
                 if (i > 0 && segments.length > 1 && (i == segments.length - 1 || segments.length == 2)) {
+                    if (this.options.locale == 'ko' && descriptionContent.slice(-1) == ',') {
+                        descriptionContent = descriptionContent.slice(0, -1);
+                    }
                     descriptionContent += "".concat(this.i18n.spaceAnd(), " ");
                 }
                 if (segments[i].indexOf("/") > -1 || segments[i].indexOf("-") > -1) {
