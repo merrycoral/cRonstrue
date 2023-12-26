@@ -19,12 +19,11 @@ for (let locale of fs.readdirSync("./src/i18n/locales")) {
   localeEntryPoints[`locales/${code}.min`] = "./src/i18n/locales/" + locale;
 }
 
-module.exports = [
-  {
+module.exports = [{
     mode: "production",
     entry: entryPoints,
     output: {
-      path: __dirname + "/dist",
+      path: "/dist",
       filename: "[name].js",
       library: libraryName,
       libraryTarget: "umd",
@@ -35,12 +34,10 @@ module.exports = [
       extensions: [".js", ".ts"],
     },
     module: {
-      rules: [
-        {
-          test: /\.ts$/,
-          loader: "ts-loader",
-        },
-      ],
+      rules: [{
+        test: /\.ts$/,
+        loader: "ts-loader",
+      }, ],
     },
     optimization: {
       minimize: true,
@@ -66,11 +63,10 @@ module.exports = [
       extensions: [".js", ".ts"],
     },
     externals: {
-      cronstrue: "cronstrue",
+      cronstrue: "@merrycoral/cronstrue",
     },
     module: {
-      rules: [
-        {
+      rules: [{
           test: /i18n[\/\\]locales/,
           loader: "custom-loader",
           options: {

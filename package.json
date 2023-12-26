@@ -1,7 +1,7 @@
 {
-  "name": "cronstrue",
-  "title": "cRonstrue",
-  "version": "2.47.0",
+  "name": "@merrycoral/cronstrue",
+  "title": "@merrycoral/cRonstrue",
+  "version": "2.47.10",
   "description": "Convert cron expressions into human readable descriptions",
   "author": "Brady Holt",
   "license": "MIT",
@@ -38,7 +38,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bradymholt/cronstrue.git"
+    "url": "git+https://github.com/merrycoral/cronstrue.git"
   },
   "publishConfig": {
     "access": "public"
@@ -65,8 +65,8 @@
   },
   "scripts": {
     "start": "npm run build",
-    "build": "npx tsc -p ./src --emitDeclarationOnly",
-    "test": "npx mocha --reporter spec --require ts-node/register \"./test/**/*.ts\"",
-    "prepublishOnly": "rm -rf ./dist && ./node_modules/webpack-cli/bin/cli.js && git add -A"
+    "build": "npx webpack --config webpack.config.js",
+    
+    "test": "npx mocha --reporter spec --require ts-node/register \"./test/**/*.ts\""
   }
 }

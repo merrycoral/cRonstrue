@@ -45,6 +45,6 @@ build/
 # Jetbrains IDE
 .idea/
 
-#/locales
-#/dist
+/locales
+/dist
 /.vs
