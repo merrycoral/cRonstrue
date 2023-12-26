@@ -167,8 +167,9 @@ export class ExpressionDescriptor {
     ) {
       // hours list with single minute (i.e. 30 6,14,16)
       let hourParts: string[] = hourExpression.split(",");
-      description += this.i18n.at();
-
+      if (this.options.locale != 'ko') {
+        description += this.i18n.at();
+      }
       for (let i = 0; i < hourParts.length; i++) {
         description += " ";
         description += this.formatTime(hourParts[i], minuteExpression, "");
@@ -180,6 +181,9 @@ export class ExpressionDescriptor {
         if (i == hourParts.length - 2) {
           description += this.i18n.spaceAnd();
         }
+      }
+      if (this.options.locale == 'ko') {
+        description += this.i18n.at();
       }
     } else {
       // default time description

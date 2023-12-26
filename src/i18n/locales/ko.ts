@@ -56,7 +56,7 @@ export class ko implements Locale {
   }
 
   public at() {
-    return "시간(at)";
+    return "에";
   }
 
   public spaceAnd() {
